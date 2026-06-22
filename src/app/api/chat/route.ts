@@ -7,14 +7,24 @@ import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 import { getLanguageModel } from "@/lib/provider";
 import { generationPrompt } from "@/lib/prompts/generation";
+import { logger, createRequestId } from "@/lib/logger";
 
 export async function POST(req: Request) {
+  const requestId = createRequestId();
+  const startedAt = Date.now();
+
   const {
     messages,
     files,
     projectId,
   }: { messages: any[]; files: Record<string, FileNode>; projectId?: string } =
     await req.json();
+
+  logger.info("UI generation request started", {
+    requestId,
+    projectId,
+    messageCount: messages.length,
+  });
 
   messages.unshift({
     role: "system",
@@ -37,20 +47,34 @@ export async function POST(req: Request) {
     maxTokens: 10_000,
     maxSteps: isMockProvider ? 4 : 40,
     onError: (err: any) => {
-      console.error(err);
+      logger.error("UI generation request failed", {
+        requestId,
+        projectId,
+        durationMs: Date.now() - startedAt,
+        error: err instanceof Error ? err.message : String(err),
+      });
     },
     tools: {
       str_replace_editor: buildStrReplaceTool(fileSystem),
       file_manager: buildFileManagerTool(fileSystem),
     },
     onFinish: async ({ response }) => {
+      logger.info("UI generation request completed", {
+        requestId,
+        projectId,
+        durationMs: Date.now() - startedAt,
+      });
+
       // Save to project if projectId is provided and user is authenticated
       if (projectId) {
         try {
           // Check if user is authenticated
           const session = await getSession();
           if (!session) {
-            console.error("User not authenticated, cannot save project");
+            logger.error("User not authenticated, cannot save project", {
+              requestId,
+              projectId,
+            });
             return;
           }
 
@@ -73,7 +97,11 @@ export async function POST(req: Request) {
             },
           });
         } catch (error) {
-          console.error("Failed to save project data:", error);
+          logger.error("Failed to save project data", {
+            requestId,
+            projectId,
+            error: error instanceof Error ? error.message : String(error),
+          });
         }
       }
     },
