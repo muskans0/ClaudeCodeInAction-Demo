@@ -1,0 +1,104 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - heading "React Component Generator" [level=1] [ref=e7]
+      - generic [ref=e9]:
+        - generic [ref=e15]:
+          - generic [ref=e43]:
+            - generic [ref=e46]: Create a simple button component with primary and secondary variants
+            - img [ref=e49]
+          - generic [ref=e81]:
+            - img [ref=e84]
+            - generic [ref=e89]:
+              - paragraph [ref=e91]: This is a static response. You can place an Anthropic API key in the .env file to use the Anthropic API for component generation. Let me create an App.jsx file to display the component.
+              - generic [ref=e94]: str_replace_editor
+              - separator [ref=e95]
+              - paragraph [ref=e97]: I'll create a Counter component for you.
+              - generic [ref=e100]: str_replace_editor
+              - separator [ref=e101]
+              - paragraph [ref=e103]: Now let me enhance the component with better styling.
+              - generic [ref=e106]: str_replace_editor
+              - separator [ref=e107]
+              - generic [ref=e108]:
+                - paragraph [ref=e109]: "Perfect! I've created:"
+                - list [ref=e110]:
+                  - listitem [ref=e111]:
+                    - strong [ref=e112]: Counter.jsx
+                    - text: "- A fully-featured counter component"
+                  - listitem [ref=e113]:
+                    - strong [ref=e114]: App.jsx
+                    - text: "- The main app file that displays the component"
+                - paragraph [ref=e115]: The component is now ready to use. You can see the preview on the right side of the screen.
+        - generic [ref=e23]:
+          - textbox "Describe the React component you want to create..." [ref=e24]
+          - button [disabled] [ref=e25]:
+            - img [ref=e26]
+    - separator [ref=e29]
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - tablist [ref=e34]:
+          - tab "Preview" [ref=e35]
+          - tab "Code" [active] [selected] [ref=e36]
+        - generic [ref=e37]:
+          - button "Sign In" [ref=e38]
+          - button "Sign Up" [ref=e39]
+      - generic [ref=e116]:
+        - generic [ref=e122]:
+          - generic [ref=e123]:
+            - generic [ref=e124] [cursor=pointer]:
+              - img [ref=e125]
+              - img [ref=e127]
+              - generic [ref=e129]: components
+            - generic [ref=e132] [cursor=pointer]:
+              - img [ref=e133]
+              - generic [ref=e138]: Counter.jsx
+          - generic [ref=e140] [cursor=pointer]:
+            - img [ref=e141]
+            - generic [ref=e146]: App.jsx
+        - separator [ref=e147]
+        - code [ref=e152]:
+          - generic [ref=e153]:
+            - generic [ref=e155]:
+              - generic [ref=e158]: "1"
+              - generic [ref=e162]: "2"
+              - generic [ref=e163]:
+                - generic [ref=e164] [cursor=pointer]: 
+                - generic [ref=e165]: "3"
+              - generic [ref=e166]:
+                - generic [ref=e167] [cursor=pointer]: 
+                - generic [ref=e168]: "4"
+              - generic [ref=e169]:
+                - generic [ref=e170] [cursor=pointer]: 
+                - generic [ref=e171]: "5"
+              - generic [ref=e174]:
+                - generic [ref=e175] [cursor=pointer]: 
+                - generic [ref=e176]: "6"
+              - generic [ref=e179]: "7"
+              - generic [ref=e181]: "8"
+              - generic [ref=e183]: "9"
+              - generic [ref=e185]: "10"
+              - generic [ref=e187]: "11"
+            - generic [ref=e229]:
+              - generic [ref=e231]: import Counter from '@/components/
+              - generic [ref=e233]: Counter';
+              - generic [ref=e236]: "export default function App() {"
+              - generic [ref=e238]: return (
+              - generic [ref=e240]: <div className="min-h-screen
+              - generic [ref=e242]: bg-gray-100 flex items-center
+              - generic [ref=e244]: justify-center p-8">
+              - generic [ref=e246]: <div className="w-full
+              - generic [ref=e248]: max-w-md">
+              - generic [ref=e250]: <Counter />
+              - generic [ref=e252]: </div>
+              - generic [ref=e254]: </div>
+              - generic [ref=e256]: );
+              - generic [ref=e258]: "}"
+            - textbox "Editor content" [ref=e260]
+            - generic:
+              - generic:
+                - generic:
+                  - list
+  - alert [ref=e80]
+  - generic [ref=e261]:
+    - alert
+    - alert
